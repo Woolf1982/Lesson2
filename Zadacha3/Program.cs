@@ -5,16 +5,20 @@
 1 -> нет
 */
 
-int dayNumber = new Random().Next(1, 8);
-string[] Days = { "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье" };
-string txtResult = "";
+Console.Write("Enter a number for the day of the week: ");
+int dayNumber = Convert.ToInt32(Console.ReadLine());
 
-if (dayNumber > 5) 
+void CheckingTheDayOfTheWeek (int dayNumber)
 {
-    txtResult = $". Этот день недели - выходной!";
+  if (dayNumber == 6 || dayNumber == 7)
+  {
+  Console.WriteLine("this day is a day off");
+  }
+  else if (dayNumber < 1 || dayNumber > 7) 
+  {
+    Console.WriteLine("7 days in a week!");
+  }
+  else Console.WriteLine("this day is weekday");
 }
-else txtResult = $", рабочий день недели.";
 
-System.Console.WriteLine();
-System.Console.WriteLine($"{dayNumber}-й день недели - это {Days[dayNumber - 1]}{txtResult}");
-System.Console.WriteLine();
+CheckingTheDayOfTheWeek(dayNumber);
